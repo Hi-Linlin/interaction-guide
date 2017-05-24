@@ -1,0 +1,32 @@
+{
+  "name": "interface",
+  "version": "0.0.0",
+  "description": "A vue project.",
+  "private": false,
+  "keywords": [
+  ],
+  "scripts": {
+    "dev": "cooking watch -p",
+    "dist": "cooking build -p",
+    "deploy": "cooking build --no-color"
+  },
+  "faas": {
+    "domain": "UI-guide",
+    "public": "./dist",
+    "description": "WEB基本交互指南",
+    "author_name": "翁诚舟",
+    "author_email": "chengzhou.weng",
+    "notice": ["chengzhou.weng"],
+    "build": ["yarn", "npm run dist"]
+  },
+  "author": "waynecz",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.3.3",
+    "vue-template-compiler": "2.3.3",
+    "babel-polyfill": "*"
+  },
+  "devDependencies": {
+    "cooking-vue2": "*"
+  }
+}

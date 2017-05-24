@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'iconfont';  /* project id 303979 */
+    src: url('//at.alicdn.com/t/font_h3q6bopc969od2t9.eot');
+    src: url('//at.alicdn.com/t/font_h3q6bopc969od2t9.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_h3q6bopc969od2t9.woff') format('woff'),
+    url('//at.alicdn.com/t/font_h3q6bopc969od2t9.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_h3q6bopc969od2t9.svg#iconfont') format('svg');
+}
+
+.icon {
+    font-family: "iconfont" !important;
+    font-size: 30px;
+    user-select: none;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: #f6f6f6;
+    font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, 华文楷体, KaiTi_GB2312, 楷体_GB2312, serif;
+}
+
+.app {
+    width: 1000px;
+    padding: 10px 40px;
+    background: #fff;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 15px;
+    background: $primary;
+    width: fit-content;
+}
+
+h2 {
+    margin-top: 1.5em;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 30px;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    width: fit-content;
+
+    &:before {
+        content: '#############################################################################################################################';
+        position: absolute;
+        color: #666;
+        top: 0;
+    }
+}
+
+h5 {
+    display: inline-block;
+    font-size: 15px;
+    margin: 5px 0;
+
+    &::before {
+        content: '*';
+        display: inline-block;
+        font-size: 20px;
+        color: #ff313e;
+        transform: translateX(-5px);
+        vertical-align: middle;
+    }
+}
+
+section {
+    position: relative;
+    margin: 50px 0 100px;
+    padding-left: 40px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        display: block;
+        width: 8px;
+        background: $primary;
+        transform: skew(10deg) rotate(10deg);
+    }
+}
+
+ul {
+    padding-left: 10px;
+}
+
+li {
+    list-style: none;
+}
+
+code {
+    padding: 5px;
+    background: $primary;
+    //color: #fff;
+    font-style: italic;
+    margin: 0 5px;
+    font-size: 14px;
+}

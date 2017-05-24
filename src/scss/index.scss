@@ -1,0 +1,226 @@
+$primary: #f7ff4b;
+
+@import "mixin";
+@import "flex-layout";
+@import "page";
+
+// 图标按钮
+.icon-button {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    width: 60px;
+    height: 60px;
+    background: $primary;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+        background: mix($primary, black, 95%);
+    }
+
+    &:active {
+        background: #111;
+        color: $primary;
+    }
+}
+
+// 按钮
+.button {
+    width: 140px;
+    text-align: center;
+    padding: 10px 0;
+    background: $primary;
+    cursor: pointer;
+
+    &:not(:last-child) {
+        margin-right: 5px;
+    }
+
+    &.disabled {
+        background: #ccc;
+    }
+
+    &::before {
+        content: attr(data-content);
+    }
+
+    &.effect {
+        &:hover {
+            background: mix($primary, black, 95%);
+            &::before {
+                content: attr(data-hover);
+            }
+        }
+        &:active {
+            background: #111;
+            color: $primary;
+            &::before {
+                content: attr(data-active);
+            }
+        }
+    }
+}
+
+.form-button {
+    user-select: none;
+    overflow: hidden;
+    &::before {
+        content: attr(data-content);
+        line-height: 20px;
+    }
+    @extend .button;
+
+    &:hover {
+        background: mix($primary, black, 95%);
+    }
+    &:active {
+        background: #111;
+        color: $primary;
+    }
+
+    &.loading {
+        background: #ccc;
+        &::before {
+            content: 'loading';
+        }
+    }
+}
+
+.loading {
+    .spinner {
+        display: inline-block;
+    }
+}
+.spinner {
+    display: none;
+    height: 20px;
+    vertical-align: middle;
+    overflow: hidden;
+    transform: translateY(-1px);
+
+    &::after {
+        display: block;
+        white-space: pre;
+        line-height: 1.5;
+        content: '🌑\a🌒\a🌓\a🌔\a🌕\a🌖\a🌗\a🌘';
+        width: 1.5em;
+        animation: spin 1.5s steps(8) infinite;
+    }
+    //&.earth {
+    //    &::after {
+    //        content: '🌍\a🌎\a🌏';
+    //        width: 1.5em;
+    //        animation: spin 1s steps(3, end) infinite;
+    //    }
+    //}
+}
+@keyframes spin {
+    to {
+        transform: translateY( -12em);
+    }
+}
+
+input {
+    &:not(:last-child) {
+        margin-right: 5px;
+    }
+    //color: $primary;
+    padding: 10px 15px;
+    border: 2px #aaa solid;
+    outline: none;
+
+    background: $primary;
+
+    //&::-webkit-input-placeholder {
+    //    color: #fff;
+    //}
+
+    &:focus {
+        outline: none;
+    }
+
+    &.effect {
+        &:hover {
+            border-color: #111;
+        }
+        &:focus {
+            background: mix($primary, white, 0%);
+            border-color: #111;
+        }
+    }
+
+    &.disabled {
+        background: #ccc;
+    }
+}
+
+// tooltip
+.tooltip {
+    &::before {
+        display: block;
+        position: absolute;
+        width: 120%;
+        height: 20px;
+        top: -30px;
+        background: $primary;
+    }
+    &::after {
+        color: black;
+        font-size: 12px;
+        position: absolute;
+        line-height: 20px;
+        top: -30px;
+    }
+
+    &:hover {
+        &::before {
+            content: '';
+        }
+        &::after {
+            content: attr(data-tooltip);
+        }
+    }
+}
+
+
+// list-table
+.list {
+    width: 200px;
+    height: 90px;
+
+    &::before {
+        display: block;
+        content: '';
+        width: 100%;
+        height: 20px;
+        background: black;
+        margin-bottom: 1px;
+    }
+    .units {
+        width: 100%;
+        &::before,
+        &::after {
+            display: block;
+            content: '';
+            width: 100%;
+            height: 30px;
+            box-shadow: 0 0 0 2px black inset;
+            background: $primary;
+            margin-bottom: 2px;
+        }
+    }
+    &.loading {
+        .units {
+            display: none;
+        }
+    }
+
+    .spinner {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 20px);
+    }
+}
